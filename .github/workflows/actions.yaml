@@ -2,7 +2,7 @@ name: Simple-web
 on:
   push:
     branches:
-      - master
+      - feature
 
 jobs:
   web-host:
