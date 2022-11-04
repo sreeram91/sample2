@@ -24,7 +24,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: web
           environment_name: Web-env
-          existing_bucket_name: docker-web
+          existing_bucket_name: elasticbeanstalk-ap-south-1-136762368411
           region: ap-south-1
           version_label:  ${{ github.sha }}
           deployment_package: deploy.zip
