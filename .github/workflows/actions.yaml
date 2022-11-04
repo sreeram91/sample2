@@ -14,17 +14,8 @@ jobs:
       - name: running docker build
         run: docker build -t sreeram91/sample-web .
 
-      - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
-
-      - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v20
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: web
-          environment_name: Web-env
-          existing_bucket_name: elasticbeanstalk-ap-south-1-136762368411
-          region: ap-south-1
-          version_label:  ${{ github.sha }}
-          deployment_package: deploy.zip
+      - name: docker run
+        run: docker run -d -p 3002:3001 sreeram91/sample-web
+        
+      - name: docker version
+        run:  docker --version
